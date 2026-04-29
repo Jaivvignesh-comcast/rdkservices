@@ -36,12 +36,12 @@
 
 
 #define MIGRATIONPREPARER_NAMESPACE "MigrationPreparer"
-#define DATASTORE_PATH _T("/opt/secure/migration/migration_data_store.json")
-#define DATASTORE_DIR _T("/opt/secure/migration/")
+#define DATASTORE_PATH _T("/opt/persistent/migration/migration_data_store.json")
+#define DATASTORE_DIR _T("/opt/persistent/migration/")
 #define TR181_MIGRATION_READY "Device.DeviceInfo.X_RDKCENTRAL-COM_RFC.Bootstrap.MigrationReady"
-#define MIGRATIONREADY_PATH _T("/opt/secure/migration/migrationready.txt")
-#define MIGRATIONREADY_DIR _T("/opt/secure/migration/")
-#define POSTMORTEM_DIR _T("/opt/secure/corrupted-migration/")
+#define MIGRATIONREADY_PATH _T("/opt/persistent/migration/migrationready.txt")
+#define MIGRATIONREADY_DIR _T("/opt/persistent/migration/")
+#define POSTMORTEM_DIR _T("/opt/persistent/corrupted-migration/")
 
 
 // PLUGIN SPECIFIC CUSTOM ERROR CODES
