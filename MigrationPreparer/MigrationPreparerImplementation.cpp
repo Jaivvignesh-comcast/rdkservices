@@ -79,7 +79,7 @@ namespace Plugin {
 
      MigrationPreparerImplementation::sanityStatus MigrationPreparerImplementation::doSanityCheck(void){
         WPEFramework::Core::File dataStore;
-		dataStore = string("/opt/secure/migration/migration_data_store.json");
+		dataStore = string("/opt/persistent/migration/migration_data_store.json");
         WPEFramework::Core::OptionalType<WPEFramework::Core::JSON::Error> error;
         JsonObject dataStoreJB;
         sanityStatus status = sanityStatus::PASS; 
@@ -188,7 +188,7 @@ namespace Plugin {
 
     bool MigrationPreparerImplementation::resetDatastore(void){
         WPEFramework::Core::File dataStore;
-        dataStore = string("/opt/secure/migration/migration_data_store.json");
+        dataStore = string("/opt/persistent/migration/migration_data_store.json");
         if(!dataStore.Exists()) {
             LOGWARN("DataStore file does not exist");
             return true;
@@ -211,7 +211,7 @@ namespace Plugin {
     }
     bool MigrationPreparerImplementation::resetMigrationready(void){
         WPEFramework::Core::File migrationReady;         
-		migrationReady = string("/opt/secure/migration/migrationready.txt");
+		migrationReady = string("/opt/persistent/migration/migrationready.txt");
         if(!migrationReady.Exists()) {
             LOGWARN("MigrationReady file does not exist");
             return true;
@@ -273,7 +273,7 @@ namespace Plugin {
         string key = name;
         string newValue = value;
          WPEFramework::Core::File dataStore;         
-		dataStore = string("/opt/secure/migration/migration_data_store.json");
+		dataStore = string("/opt/persistent/migration/migration_data_store.json");
         WPEFramework::Core::Directory dataStoreDir(DATASTORE_DIR);
         
         // check if someone deletes the dataStore in the middle of the operation
@@ -432,7 +432,7 @@ namespace Plugin {
                 // check if last entry is deleted
                 if(_lineNumber[key] == _curLineIndex) {
                      WPEFramework::Core::File dataStore;         
-					dataStore = string("/opt/secure/migration/migration_data_store.json");
+					dataStore = string("/opt/persistent/migration/migration_data_store.json");
                     dataStore.Append();
                     // if last entry is deleted remove comma from the previous line
                     dataStore.Position(false, dataStore.Size());
@@ -483,7 +483,7 @@ namespace Plugin {
         _adminLock.Lock();
         LOGINFO("Component Name: %s", _compName.c_str());
         WPEFramework::Core::File migrationReady;         
-		migrationReady = string("/opt/secure/migration/migrationready.txt");
+		migrationReady = string("/opt/persistent/migration/migrationready.txt");
         WPEFramework::Core::Directory migrationReadyDir(MIGRATIONREADY_DIR);
 
         // check whether file is exist or not, if not create one
@@ -565,7 +565,7 @@ namespace Plugin {
         _adminLock.Lock();
         std::list<string> componentlist;      
         WPEFramework::Core::File migrationReady;         
-		migrationReady = string("/opt/secure/migration/migrationready.txt");
+		migrationReady = string("/opt/persistent/migration/migrationready.txt");
         WPEFramework::Core::Directory migrationReadyDir(MIGRATIONREADY_DIR);
 
         // check whether file is exist or not, if not return empty string
