@@ -98,7 +98,7 @@ using namespace std;
 #define LOG_UPLOAD_STATUS_FAILURE "UPLOAD_FAILURE"
 #define LOG_UPLOAD_STATUS_ABORTED "UPLOAD_ABORTED"
 
-#define BOOTVERSION "/opt/.bootversion"
+#define BOOTVERSION "/opt/persistent/migration/.bootversion"
 
 /**
  * @struct firmwareUpdate
